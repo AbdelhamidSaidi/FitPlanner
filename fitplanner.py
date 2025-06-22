@@ -1,6 +1,5 @@
 import random
 
-# Define splits and workouts
 def get_workout_split(days):
     if days == 2:
         return ['Upper Body', 'Lower Body']
@@ -15,38 +14,18 @@ def get_workout_split(days):
     else:
         raise ValueError("Workout days must be between 2 and 6.")
 
-# Exercise database
 workout_bank = {
     'Push': {
-        'reps': ['Bench Press', 'Overhead Press', 'Triceps Dips'],
-        'time': ['Shoulder Taps', 'Plyo Push-ups']
-    },
-    'Pull': {
-        'reps': ['Barbell Rows', 'Face Pulls', 'Dumbbell Rows', 'Pull-ups'],
-        'time': ['Jump Rope', 'Resistance Band Pulls']
-    },
-    'Legs': {
-        'reps': ['Squats', 'Romanian Deadlifts', 'Lunges'],
-        'time': ['Mountain Climbers', 'Wall Sits', 'Jump Squats']
-    },
-    'Upper Body': {
-        'reps': ['Pull-ups', 'Bench Press', 'Shoulder Press'],
-        'time': ['Plank', 'Shadow Boxing']
-    },
-    'Lower Body': {
-        'reps': ['Deadlifts', 'Leg Curl', 'Step-ups'],
-        'time': ['Wall Sits', 'Jump Lunges']
-    }
+        'reps': ['Bench Press', 'Overhead Press', 'Triceps Dips'], 'time': ['Shoulder Taps', 'Plyo Push-ups']},
+    'Pull': {'reps': ['Barbell Rows', 'Face Pulls', 'Dumbbell Rows', 'Pull-ups'],'time': ['Jump Rope', 'Resistance Band Pulls']},
+    'Legs': {'reps': ['Squats', 'Romanian Deadlifts', 'Lunges'],'time': ['Mountain Climbers', 'Wall Sits', 'Jump Squats']},
+    'Upper Body': {'reps': ['Pull-ups', 'Bench Press', 'Shoulder Press'],'time': ['Plank', 'Shadow Boxing']},
+    'Lower Body': {'reps': ['Deadlifts', 'Leg Curl', 'Step-ups'],'time': ['Wall Sits', 'Jump Lunges']}
 }
 
-# Time-based exercises
 TIME_BASED = {
-    'Plank', 'Wall Sits', 'Mountain Climbers', 'Jump Rope',
-    'Shadow Boxing', 'Plyo Push-ups', 'Shoulder Taps',
-    'Resistance Band Pulls', 'Jump Lunges'
-}
+    'Plank', 'Wall Sits', 'Mountain Climbers', 'Jump Rope','Shadow Boxing', 'Plyo Push-ups', 'Shoulder Taps','Resistance Band Pulls', 'Jump Lunges'}
 
-# Format rep/time scheme
 def get_format(goal, exercise):
     if exercise in TIME_BASED:
         if goal == 1:
@@ -64,7 +43,6 @@ def get_format(goal, exercise):
             return "3–5 sets of 6–12 reps"
     return ""
 
-# Recommend weights adjusted by gender
 def recommend_weight(goal, exercise, bodyweight, gender):
     supported_bodyweight = {'Pull-ups', 'Triceps Dips', 'Push-ups'}
 
@@ -82,7 +60,7 @@ def recommend_weight(goal, exercise, bodyweight, gender):
         'Step-ups': 0.5
     }
 
-    gender_factor = 1.0 if gender == 'm' else 0.7  # ~70% female vs male strength on average
+    gender_factor = 1.0 if gender == 'm' else 0.7 
 
     if exercise in supported_bodyweight:
         if goal == 1:
@@ -107,13 +85,11 @@ def recommend_weight(goal, exercise, bodyweight, gender):
     weight = round(bodyweight * ratio * gender_factor)
     return f"~{weight} kg"
 
-# Distribute workout days across the week
 def distribute_workout_days(days):
     valid_days = [1, 2, 3, 4, 5, 6]  # Monday to Saturday
     interval = len(valid_days) / days
     return [valid_days[round(i * interval)] for i in range(days)]
 
-# Create personalized workout schedule
 def create_schedule(days, goal, weight, gender):
     split = get_workout_split(days)
     days_idx = distribute_workout_days(days)
@@ -138,7 +114,6 @@ def create_schedule(days, goal, weight, gender):
 
     return schedule
 
-# BMI calculation
 def get_bmi(weight, height_cm):
     height_m = height_cm / 100
     return round(weight / (height_m ** 2), 1)
@@ -181,12 +156,12 @@ def main():
         schedule = create_schedule(days, goal, weight, gender)
         days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-        print("\n📅 Weekly Workout Plan:")
+        print("\n Workout Plan:")
         for i in range(7):
             print(f"{days_of_week[i]}: {schedule[i]}")
 
     except ValueError as e:
-        print(f"❌ {e}")
+        print(f"Error!!! {e}")
 
 if __name__ == "__main__":
     main()
