@@ -1,58 +1,43 @@
-Sources & References
+## Sources & References
 
-Workout Splits
+### Workout Splits
 
-Upper/Lower Split, Push/Pull/Legs, and Full-Body Splits
+- **Upper/Lower Split, Push/Pull/Legs, and Full-Body Splits**  
+  - Schoenfeld, B.J. (2016). *Science and Development of Muscle Hypertrophy*. Human Kinetics.  
+  - Gentil, P., Fisher, J., & Steele, J. (2017). *A review of the acute effects and long-term adaptations of single- and multi-joint exercises during resistance training*. Sports Medicine.  
+  These splits are widely recommended for maximizing hypertrophy and recovery in resistance training.
 
-Schoenfeld, B.J. (2016). Science and Development of Muscle Hypertrophy. Human Kinetics.
+### Sets, Reps, and Time-Based Protocols
 
-Gentil, P., Fisher, J., & Steele, J. (2017). A review of the acute effects and long-term adaptations of single- and multi-joint exercises during resistance training. Sports Medicine.
-These splits are widely recommended for maximizing hypertrophy and recovery in resistance training.
+- **Hypertrophy (Muscle Growth):**  
+  - 6–12 reps per set, 3–5 sets (Schoenfeld, 2010)  
+  - Schoenfeld, B.J. (2010). The mechanisms of muscle hypertrophy and their application to resistance training. *Journal of Strength and Conditioning Research*, 24(10), 2857-2872.
 
-Sets, Reps, and Time-Based Protocols
+- **Muscular Endurance:**  
+  - Higher reps (15–25) with moderate loads (Ratamess, 2012)  
+  - Ratamess, N.A. (2012). *ACSM’s Foundations of Strength Training and Conditioning*. Wolters Kluwer Health.
 
-Hypertrophy (Muscle Growth):
+- **Fat Loss / Weight Loss:**  
+  - Moderate reps (12–20) with shorter rest periods to increase metabolic stress (Paoli et al., 2012)  
+  - Paoli, A., et al. (2012). Resistance training with moderate loads promotes fat loss and preserves lean mass. *Journal of Sports Medicine and Physical Fitness*, 52(1), 61-67.
 
-6–12 reps per set, 3–5 sets (Schoenfeld, 2010)
+- **Time-Based Isometric Exercises (Plank, Wall Sit):**  
+  - Hold times of 30–60 seconds per set with multiple sets are effective for core endurance and stability (Escamilla et al., 2010)  
+  - Escamilla, R.F., et al. (2010). Core muscle activation during exercises. *Journal of Orthopaedic & Sports Physical Therapy*, 40(8), 464-472.
 
-Schoenfeld, B.J. (2010). The mechanisms of muscle hypertrophy and their application to resistance training. Journal of Strength and Conditioning Research, 24(10), 2857-2872.
+### Weight to Bodyweight Ratios
 
-Muscular Endurance:
+- **Recommended Load Ratios for Compound Lifts:**  
+  - Bench Press: ~60–100% of bodyweight depending on experience (Schoenfeld, 2010)  
+  - Squats and Deadlifts: 1.0–1.5× bodyweight for intermediate lifters (Schoenfeld, 2010; Stone et al., 2007)  
+  - Rows and Pull-Ups: Typically 50–80% bodyweight load equivalents (Gentil et al., 2017)
 
-Higher reps (15–25) with moderate loads (Ratamess, 2012)
+- **Assisted vs. Weighted Bodyweight Exercises:**  
+  - Assistance reduces effective load by ~10–20% of bodyweight for beginners aiming to build strength (Andersen et al., 2014)  
+  - Weighted bodyweight exercises increase resistance by adding 10–20% of bodyweight for hypertrophy stimulus (Schoenfeld, 2010)
 
-Ratamess, N.A. (2012). ACSM’s Foundations of Strength Training and Conditioning. Wolters Kluwer Health.
+### General Exercise Guidelines
 
-Fat Loss / Weight Loss:
+- **American College of Sports Medicine (ACSM) Position Stands:**  
+  - Ratamess, N.A. et al. (2009). Progression Models in Resistance Training for Healthy Adults. *Medicine & Science in Sports & Exercise*, 41(3), 687-708.
 
-Moderate reps (12–20) with shorter rest periods to increase metabolic stress (Paoli et al., 2012)
-
-Paoli, A., et al. (2012). Resistance training with moderate loads promotes fat loss and preserves lean mass. Journal of Sports Medicine and Physical Fitness, 52(1), 61-67.
-
-Time-Based Isometric Exercises (Plank, Wall Sit):
-
-Hold times of 30–60 seconds per set with multiple sets are effective for core endurance and stability (Escamilla et al., 2010)
-
-Escamilla, R.F., et al. (2010). Core muscle activation during exercises. Journal of Orthopaedic & Sports Physical Therapy, 40(8), 464-472.
-
-Weight to Bodyweight Ratios
-
-Recommended Load Ratios for Compound Lifts:
-
-Bench Press: ~60–100% of bodyweight depending on experience (Schoenfeld, 2010)
-
-Squats and Deadlifts: 1.0–1.5× bodyweight for intermediate lifters (Schoenfeld, 2010; Stone et al., 2007)
-
-Rows and Pull-Ups: Typically 50–80% bodyweight load equivalents (Gentil et al., 2017)
-
-Assisted vs. Weighted Bodyweight Exercises:
-
-Assistance reduces effective load by ~10–20% of bodyweight for beginners aiming to build strength (Andersen et al., 2014)
-
-Weighted bodyweight exercises increase resistance by adding 10–20% of bodyweight for hypertrophy stimulus (Schoenfeld, 2010)
-
-General Exercise Guidelines
-
-American College of Sports Medicine (ACSM) Position Stands:
-
-Ratamess, N.A. et al. (2009). Progression Models in Resistance Training for Healthy Adults. Medicine & Science in Sports & Exercise, 41(3), 687-708.
