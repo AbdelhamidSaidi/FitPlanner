@@ -39,14 +39,14 @@ workout_bank = {
     }
 }
 
-# Time based workout
+# Time-based exercises
 TIME_BASED = {
     'Plank', 'Wall Sits', 'Mountain Climbers', 'Jump Rope',
     'Shadow Boxing', 'Plyo Push-ups', 'Shoulder Taps',
     'Resistance Band Pulls', 'Jump Lunges'
 }
 
-# Training goal to format sets and reps or sets and time
+# Format rep/time scheme
 def get_format(goal, exercise):
     if exercise in TIME_BASED:
         if goal == 1:
@@ -64,8 +64,8 @@ def get_format(goal, exercise):
             return "3–5 sets of 6–12 reps"
     return ""
 
-# bodyweight related workouts
-def recommend_weight(goal, exercise, bodyweight):
+# Recommend weights adjusted by gender
+def recommend_weight(goal, exercise, bodyweight, gender):
     supported_bodyweight = {'Pull-ups', 'Triceps Dips', 'Push-ups'}
 
     ratios = {
@@ -82,17 +82,19 @@ def recommend_weight(goal, exercise, bodyweight):
         'Step-ups': 0.5
     }
 
+    gender_factor = 1.0 if gender == 'm' else 0.7  # ~70% female vs male strength on average
+
     if exercise in supported_bodyweight:
         if goal == 1:
-            load = round(-0.15 * bodyweight)
-            return f"{bodyweight} kg – {abs(load)} kg assist"
+            load = round(-0.15 * bodyweight * gender_factor)
+            return f"{round(bodyweight * gender_factor)} kg – {abs(load)} kg assist"
         elif goal == 2:
-            return f"{bodyweight} kg (bodyweight)"
+            return f"{round(bodyweight * gender_factor)} kg (bodyweight)"
         elif goal == 3:
-            load = round(0.15 * bodyweight)
-            return f"{bodyweight} kg + {load} kg"
+            load = round(0.15 * bodyweight * gender_factor)
+            return f"{round(bodyweight * gender_factor)} kg + {load} kg"
         else:
-            return f"{bodyweight} kg (bodyweight)"
+            return f"{round(bodyweight * gender_factor)} kg (bodyweight)"
 
     ratio = ratios.get(exercise, 0.4)
     if goal == 1:
@@ -102,17 +104,17 @@ def recommend_weight(goal, exercise, bodyweight):
     elif goal == 3:
         ratio *= 1.0
 
-    weight = round(bodyweight * ratio)
+    weight = round(bodyweight * ratio * gender_factor)
     return f"~{weight} kg"
 
-# Distribute workout days evenly across the week (Monday to Saturday)
+# Distribute workout days across the week
 def distribute_workout_days(days):
     valid_days = [1, 2, 3, 4, 5, 6]  # Monday to Saturday
     interval = len(valid_days) / days
     return [valid_days[round(i * interval)] for i in range(days)]
 
-# Create weekly workout schedule
-def create_schedule(days, goal, weight):
+# Create personalized workout schedule
+def create_schedule(days, goal, weight, gender):
     split = get_workout_split(days)
     days_idx = distribute_workout_days(days)
     schedule = ['Rest'] * 7  # Sunday to Saturday
@@ -127,28 +129,33 @@ def create_schedule(days, goal, weight):
         ex_lines = []
         for ex in all_exs:
             sets_reps = get_format(goal, ex)
-            if ex in TIME_BASED or recommend_weight(goal, ex, weight) == "bodyweight":
+            if ex in TIME_BASED:
                 ex_lines.append(f"{ex} ({sets_reps})")
             else:
-                load = recommend_weight(goal, ex, weight)
+                load = recommend_weight(goal, ex, weight, gender)
                 ex_lines.append(f"{ex} ({sets_reps}, use {load})")
         schedule[day] = formatted + "; ".join(ex_lines)
 
     return schedule
 
-# calculate bmi
+# BMI calculation
 def get_bmi(weight, height_cm):
     height_m = height_cm / 100
     return round(weight / (height_m ** 2), 1)
 
-# Main 
+# Main
 def main():
-    print("🏋️ Workout Planner 🏋️")
+    print("🏋️ Personalized Workout Planner 🏋️")
 
     try:
+        gender = input("Enter your gender (M/F): ").strip().lower()
+        if gender not in ['m', 'f']:
+            raise ValueError("Gender must be M or F.")
+
         height = float(input("Enter your height in cm: "))
         weight = float(input("Enter your weight in kg: "))
         bmi = get_bmi(weight, height)
+
         print(f"📏 Your BMI is {bmi} — ", end='')
         if bmi < 18.5:
             print("Underweight")
@@ -159,11 +166,11 @@ def main():
         else:
             print("Obese")
 
-        days = int(input("\nEnter number of workout days per week (2–6): "))
+        days = int(input("\nHow many days per week do you want to work out? (2–6): "))
         if not 2 <= days <= 6:
             raise ValueError
 
-        print("\nSelect your goal:")
+        print("\nChoose your goal:")
         print("1. Lose Weight")
         print("2. Increase Endurance")
         print("3. Build Muscle")
@@ -171,15 +178,15 @@ def main():
         if goal not in [1, 2, 3]:
             raise ValueError
 
-        schedule = create_schedule(days, goal, weight)
+        schedule = create_schedule(days, goal, weight, gender)
         days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-        print("\n📅🏋️ Your Weekly Workout Plan:")
+        print("\n📅 Weekly Workout Plan:")
         for i in range(7):
             print(f"{days_of_week[i]}: {schedule[i]}")
 
-    except ValueError:
-        print(" Invalid input. Please enter valid numbers.")
+    except ValueError as e:
+        print(f"❌ {e}")
 
 if __name__ == "__main__":
     main()
