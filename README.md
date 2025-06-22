@@ -40,7 +40,7 @@ A Python terminal-based workout planner that creates a personalized weekly worko
 3. Run the script in your terminal or command prompt:
 
    ```bash
-   python workout_planner.py
+   python fitplanner.py
    ```
 
 4. Follow the on-screen prompts to input:
