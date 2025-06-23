@@ -61,25 +61,29 @@ A Python terminal-based workout planner that creates a personalized weekly worko
 ## Example Output
 
 ```
-Enter your height in cm: 175
-Enter your weight in kg: 70
-📏 Your BMI is 22.9 — Normal
+🏋️ Personalized Workout Planner 🏋️
+Enter your gender (M/F): M
+Enter your height in cm: 180
+Enter your weight in kg: 80
+📏 Your BMI is 24.7 — Normal
 
-Enter number of workout days per week (2–6): 3
+How many days per week do you want to work out? (2–6): 3
 
-Select your goal:
+Choose your goal:
 1. Lose Weight
 2. Increase Endurance
 3. Build Muscle
 Enter the number of your goal: 3
 
-📅 Your Weekly Workout Plan:
+ Recommended daily protein intake for muscle gain: ~152 g
+
+🗓️  --Workout Plan:
 Sunday: Rest
-Monday: Push - Bench Press (3–5 sets of 6–12 reps, use ~42 kg); Overhead Press (3–5 sets of 6–12 reps, use ~35 kg); Shoulder Taps (3 sets of 60 sec)
+Monday: Push - Bench Press (3–5 sets of 6–12 reps, use ~48 kg); Overhead Press (3–5 sets of 6–12 reps, use ~40 kg); Plyo Push-ups (3 sets of 60 sec)
 Tuesday: Rest
-Wednesday: Pull - Dumbbell Rows (3–5 sets of 6–12 reps, use ~35 kg); Barbell Rows (3–5 sets of 6–12 reps, use ~42 kg); Jump Rope (3 sets of 60 sec)
+Wednesday: Pull - Face Pulls (3–5 sets of 6–12 reps, use ~32 kg); Barbell Rows (3–5 sets of 6–12 reps, use ~48 kg); Jump Rope (3 sets of 60 sec)
 Thursday: Rest
-Friday: Legs - Romanian Deadlifts (3–5 sets of 6–12 reps, use ~56 kg); Squats (3–5 sets of 6–12 reps, use ~70 kg); Jump Squats (3 sets of 60 sec)
+Friday: Legs - Lunges (3–5 sets of 6–12 reps, use ~32 kg); Squats (3–5 sets of 6–12 reps, use ~80 kg); Wall Sits (3 sets of 60 sec)
 Saturday: Rest
 ```
 
