@@ -16,15 +16,32 @@ def get_workout_split(days):
 
 workout_bank = {
     'Push': {
-        'reps': ['Bench Press', 'Overhead Press', 'Triceps Dips'], 'time': ['Shoulder Taps', 'Plyo Push-ups']},
-    'Pull': {'reps': ['Barbell Rows', 'Face Pulls', 'Dumbbell Rows', 'Pull-ups'],'time': ['Jump Rope', 'Resistance Band Pulls']},
-    'Legs': {'reps': ['Squats', 'Romanian Deadlifts', 'Lunges'],'time': ['Mountain Climbers', 'Wall Sits', 'Jump Squats']},
-    'Upper Body': {'reps': ['Pull-ups', 'Bench Press', 'Shoulder Press'],'time': ['Plank', 'Shadow Boxing']},
-    'Lower Body': {'reps': ['Deadlifts', 'Leg Curl', 'Step-ups'],'time': ['Wall Sits', 'Jump Lunges']}
+        'reps': ['Bench Press', 'Overhead Press', 'Triceps Dips'],
+        'time': ['Shoulder Taps', 'Plyo Push-ups']
+    },
+    'Pull': {
+        'reps': ['Barbell Rows', 'Face Pulls', 'Dumbbell Rows', 'Pull-ups'],
+        'time': ['Jump Rope', 'Resistance Band Pulls']
+    },
+    'Legs': {
+        'reps': ['Squats', 'Romanian Deadlifts', 'Lunges'],
+        'time': ['Mountain Climbers', 'Wall Sits', 'Jump Squats']
+    },
+    'Upper Body': {
+        'reps': ['Pull-ups', 'Bench Press', 'Shoulder Press'],
+        'time': ['Plank', 'Shadow Boxing']
+    },
+    'Lower Body': {
+        'reps': ['Deadlifts', 'Leg Curl', 'Step-ups'],
+        'time': ['Wall Sits', 'Jump Lunges']
+    }
 }
 
 TIME_BASED = {
-    'Plank', 'Wall Sits', 'Mountain Climbers', 'Jump Rope','Shadow Boxing', 'Plyo Push-ups', 'Shoulder Taps','Resistance Band Pulls', 'Jump Lunges'}
+    'Plank', 'Wall Sits', 'Mountain Climbers', 'Jump Rope',
+    'Shadow Boxing', 'Plyo Push-ups', 'Shoulder Taps',
+    'Resistance Band Pulls', 'Jump Lunges'
+}
 
 def get_format(goal, exercise):
     if exercise in TIME_BASED:
@@ -60,7 +77,7 @@ def recommend_weight(goal, exercise, bodyweight, gender):
         'Step-ups': 0.5
     }
 
-    gender_factor = 1.0 if gender == 'm' else 0.7 
+    gender_factor = 1.0 if gender == 'm' else 0.7
 
     if exercise in supported_bodyweight:
         if goal == 1:
@@ -118,6 +135,18 @@ def get_bmi(weight, height_cm):
     height_m = height_cm / 100
     return round(weight / (height_m ** 2), 1)
 
+def get_protein_intake(weight, goal):
+    if goal == 1:  # Lose weight
+        avg_p = (2.0 + 2.7) / 2 * weight
+        return f"Recommended daily protein intake for fat loss: ~{round(avg_p)} g"
+    elif goal == 2:  # Endurance
+        avg_p = (1.2 + 1.6) / 2 * weight
+        return f"Recommended daily protein intake for endurance: ~{round(avg_p)} g"
+    elif goal == 3:  # Build muscle
+        avg_p = (1.6 + 2.2) / 2 * weight
+        return f"Recommended daily protein intake for muscle gain: ~{round(avg_p)} g"
+    return ""
+
 # Main
 def main():
     print("🏋️ Personalized Workout Planner 🏋️")
@@ -152,6 +181,10 @@ def main():
         goal = int(input("Enter the number of your goal: "))
         if goal not in [1, 2, 3]:
             raise ValueError
+
+        # Show protein recommendation
+        protein_info = get_protein_intake(weight, goal)
+        print(f"\n {protein_info}")
 
         schedule = create_schedule(days, goal, weight, gender)
         days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
