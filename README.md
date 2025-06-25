@@ -5,69 +5,78 @@ A Python terminal-based workout planner that creates a personalized weekly worko
 - Desired number of workout days per week (2 to 6)
 - Fitness goal (lose weight, increase endurance, or build muscle)
 - Height and weight (used to calculate BMI and suggest weights for exercises)
+- Age and gender (used to estimate maintenance and goal-specific calories)
 
 ---
 
-## Features
+## 🚀 Features
 
-- **BMI Calculation:** Calculates and displays your Body Mass Index (BMI) with category.
-- **Scientifically-backed workout splits:** Uses effective workout splits depending on workout days.
-- **Exercise plans:** Generates daily workouts with exercises including sets, reps/time, and suggested weights.
-- **Adaptive weights:** Estimates suggested weight loads based on your body weight and training goal.
-- **Assisted/weighted bodyweight exercises:** Supports pull-ups, dips, and push-ups with assistance or added weights.
-- **Even distribution:** Workout days are evenly spaced through the week, with Sunday always as a rest day.
-
----
-
-## Workout Splits Used
-
-| Workout Days | Split Type               |
-|--------------|-------------------------|
-| 2            | Upper Body / Lower Body |
-| 3            | Push / Pull / Legs      |
-| 4            | Upper Body / Lower Body (twice) |
-| 5            | Push / Pull / Legs / Upper Body / Lower Body |
-| 6            | Push / Pull / Legs (twice) |
+- **🧮 BMI Calculation:** Calculates your Body Mass Index and classifies it.
+- **🧠 Science-based Splits:** Applies goal-appropriate, evidence-backed splits.
+- **🦾 Personalized Workouts:** Reps- or time-based training plans tailored to your goal.
+- **📊 Protein Recommendations:** Calculates optimal daily protein intake for your selected goal.
+- **🔥 Calorie Targets:** Estimates your maintenance calories (TDEE) and adjusts for goal.
+- **🏋️ Weight Suggestions:** Recommends loads for weighted exercises using sex-based strength standards.
+- **🤸 Bodyweight Assist/Resist Logic:** Supports assistance (for beginners) and overload (for strength gain) in pull-ups, dips, and push-ups.
+- **📅 Even Weekly Distribution:** Spaces workouts evenly from Monday to Saturday with Sunday rest.
 
 ---
 
-## Usage
+## 🧱 Workout Splits
 
-1. Make sure you have Python 3 installed.
+| Workout Days | Split Type                                      |
+|--------------|-------------------------------------------------|
+| 2            | Upper Body / Lower Body                         |
+| 3            | Push / Pull / Legs                              |
+| 4            | Upper Body / Lower Body (twice)                 |
+| 5            | Push / Pull / Legs / Upper / Lower              |
+| 6            | Push / Pull / Legs (twice)                      |
 
-2. Clone/download this repository or copy the script.
+---
 
-3. Run the script in your terminal or command prompt:
+## 🖥️ Usage
+
+1. Ensure you have **Python 3** installed.
+2. Clone or download this repository.
+3. Run the script from terminal or command prompt:
 
    ```bash
    python fitplanner.py
    ```
 
-4. Follow the on-screen prompts to input:
+4. Follow the prompts to enter:
 
-   * Your height (in centimeters)
-   * Your weight (in kilograms)
-   * Number of workout days per week (between 2 and 6)
-   * Your fitness goal:
+   * Your gender (M/F)
+   * Age
+   * Height (cm)
+   * Weight (kg)
+   * Number of workout days (2 to 6)
+   * Fitness goal:
 
-     * 1: Lose Weight
-     * 2: Increase Endurance
-     * 3: Build Muscle
+     * 1 : Lose Weight
+     * 2 : Increase Endurance
+     * 3 : Build Muscle
 
-5. The program will display your BMI and a detailed weekly workout plan with exercises, sets/reps or time, and suggested weights.
+5. You’ll receive:
+
+   * BMI + category
+   * Maintenance & target calories
+   * Recommended protein intake
+   * A 7-day weekly plan with sets, reps/time, and loads
 
 ---
 
-## Example Output
+## 🧾 Example Output
 
 ```
 🏋️ Personalized Workout Planner 🏋️
-Enter your gender (M/F): M
+Enter your gender (M/F): m
+Enter your age: 20
 Enter your height in cm: 180
-Enter your weight in kg: 80
-📏 Your BMI is 24.7 — Normal
+Enter your weight in kg: 70
+📏 Your BMI is 21.6 — Normal
 
-How many days per week do you want to work out? (2–6): 3
+How many days per week do you want to work out? (2–6): 4
 
 Choose your goal:
 1. Lose Weight
@@ -75,45 +84,31 @@ Choose your goal:
 3. Build Muscle
 Enter the number of your goal: 3
 
- Recommended daily protein intake for muscle gain: ~152 g
+🔥 Maintenance Calories: 2682 kcal
+🎯 Target Calories for your goal: 3084 kcal
+you have a calorie surplus of: 402 kcal
 
-🗓️  --Workout Plan:
+Recommended daily protein intake for muscle gain: ~133 g
+
+Workout Plan:
 Sunday: Rest
-Monday: Push - Bench Press (3–5 sets of 6–12 reps, use ~48 kg); Overhead Press (3–5 sets of 6–12 reps, use ~40 kg); Plyo Push-ups (3 sets of 60 sec)
+Monday: Upper Body - Pull-ups (3–5 sets of 6–12 reps, use 70 kg + 10 kg); Bench Press (3–5 sets of 6–12 reps, use ~42 kg); Shadow Boxing (3 sets of 60 sec)
 Tuesday: Rest
-Wednesday: Pull - Face Pulls (3–5 sets of 6–12 reps, use ~32 kg); Barbell Rows (3–5 sets of 6–12 reps, use ~48 kg); Jump Rope (3 sets of 60 sec)
-Thursday: Rest
-Friday: Legs - Lunges (3–5 sets of 6–12 reps, use ~32 kg); Squats (3–5 sets of 6–12 reps, use ~80 kg); Wall Sits (3 sets of 60 sec)
+Wednesday: Lower Body - Leg Curl (3–5 sets of 6–12 reps, use ~42 kg); Deadlifts (3–5 sets of 6–12 reps, use ~84 kg); Jump Lunges (3 sets of 60 sec)
+Thursday: Upper Body - Shoulder Press (3–5 sets of 6–12 reps, use ~35 kg); Pull-ups (3–5 sets of 6–12 reps, use 70 kg + 10 kg); Plank (3 sets of 60 sec)
+Friday: Lower Body - Step-ups (3–5 sets of 6–12 reps, use ~35 kg); Deadlifts (3–5 sets of 6–12 reps, use ~84 kg); Wall Sits (3 sets of 60 sec)
 Saturday: Rest
 ```
 
 ---
 
-## Notes
+## 📚 Scientific Backing
 
-* The weight recommendations are approximations based on bodyweight ratios found in scientific literature and adjusted for your goal.
-* Time-based exercises like planks and wall sits are given as seconds per set instead of reps.
-* Workout days are spaced evenly Monday through Saturday; Sunday is always rest.
-* This is a command-line program with no graphical interface.
+FitPlanner’s design is based on peer-reviewed research and official guidelines that u can find in the sources.md file
 
----
+## 👥 Contributions & Feedback
 
-## Future Improvements
-
-* Export workout plan as PDF or CSV.
-* Add progressive overload and periodization.
-* Include equipment options (home/gym).
-* Build a GUI or web app version.
+Want to suggest an improvement, add more logic, or report a bug?
+Feel free to open an issue or submit a pull request!
 
 ---
-
-## License
-
-This project is open source and free to use and modify.
-
----
-
-Feel free to contribute or request features!
-
----
-
