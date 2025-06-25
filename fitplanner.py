@@ -103,14 +103,14 @@ def recommend_weight(goal, exercise, bodyweight, gender):
     return f"~{weight} kg"
 
 def distribute_workout_days(days):
-    valid_days = [1, 2, 3, 4, 5, 6]  # Monday to Saturday
+    valid_days = [1, 2, 3, 4, 5, 6]  
     interval = len(valid_days) / days
     return [valid_days[round(i * interval)] for i in range(days)]
 
 def create_schedule(days, goal, weight, gender):
     split = get_workout_split(days)
     days_idx = distribute_workout_days(days)
-    schedule = ['Rest'] * 7  # Sunday to Saturday
+    schedule = ['Rest'] * 7  
 
     for i, day in enumerate(days_idx):
         split_type = split[i]
@@ -147,7 +147,34 @@ def get_protein_intake(weight, goal):
         return f"Recommended daily protein intake for muscle gain: ~{round(avg_p)} g"
     return ""
 
-# Main
+def get_maintenance_calories(weight_kg, height_cm, age, sex, goal):
+    if sex.lower() == 'm':
+        bmr = 10 * weight_kg + 6.25 * height_cm - 5 * age + 5
+    else:
+        bmr = 10 * weight_kg + 6.25 * height_cm - 5 * age - 161
+
+    tdee = bmr * 1.55  
+    return round(tdee)
+
+def get_target_calories(weight_kg, height_cm, age, sex, goal):
+    if sex.lower() == 'm':
+        bmr = 10 * weight_kg + 6.25 * height_cm - 5 * age + 5
+    else:
+        bmr = 10 * weight_kg + 6.25 * height_cm - 5 * age - 161
+
+    tdee = bmr * 1.55  
+
+    if goal == 1:
+        target = tdee * 0.80
+    elif goal == 2:
+        target = tdee
+    elif goal == 3:
+        target = tdee * 1.15
+    else:
+        target = tdee
+
+    return round(target)
+
 def main():
     print("🏋️ Personalized Workout Planner 🏋️")
 
@@ -156,6 +183,7 @@ def main():
         if gender not in ['m', 'f']:
             raise ValueError("Gender must be M or F.")
 
+        age = int(input("Enter your age: "))
         height = float(input("Enter your height in cm: "))
         weight = float(input("Enter your weight in kg: "))
         bmi = get_bmi(weight, height)
@@ -172,7 +200,7 @@ def main():
 
         days = int(input("\nHow many days per week do you want to work out? (2–6): "))
         if not 2 <= days <= 6:
-            raise ValueError
+            raise ValueError("Workout days must be between 2 and 6.")
 
         print("\nChoose your goal:")
         print("1. Lose Weight")
@@ -180,16 +208,25 @@ def main():
         print("3. Build Muscle")
         goal = int(input("Enter the number of your goal: "))
         if goal not in [1, 2, 3]:
-            raise ValueError
+            raise ValueError("Goal must be 1, 2 or 3.")
 
-        # Show protein recommendation
+    
+        maintenance_cal = get_maintenance_calories(weight, height, age, gender, goal)
+        target_cal = get_target_calories(weight, height, age, gender, goal)
+        print(f"\n🔥 Maintenance Calories: {maintenance_cal} kcal")
+        print(f"🎯 Target Calories for your goal: {target_cal} kcal")
+        if target_cal>maintenance_cal:
+            print("you have a calorie surplus of:",(target_cal-maintenance_cal),"kcal")
+        elif target_cal < maintenance_cal :
+            print ("You have a calorie deficit of:", maintenance_cal-target_cal,"kcal")
+
         protein_info = get_protein_intake(weight, goal)
-        print(f"\n {protein_info}")
+        print(f"\n{protein_info}")
 
         schedule = create_schedule(days, goal, weight, gender)
         days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-        print("\n Workout Plan:")
+        print("\nWorkout Plan:")
         for i in range(7):
             print(f"{days_of_week[i]}: {schedule[i]}")
 
