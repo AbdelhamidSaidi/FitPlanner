@@ -53,3 +53,16 @@
   Antonio, J., et al. (2014). [A high protein diet has no harmful effects: A one-year crossover study in resistance-trained males](https://jissn.biomedcentral.com/articles/10.1186/1550-2783-11-19). *Journal of the International Society of Sports Nutrition, 11*(1), 19.
 
 ---
+
+### ✅ Calorie & Energy Requirements
+
+- **BMR & TDEE Estimation:**  
+  Mifflin, M. D., et al. (1990). [A new predictive equation for resting energy expenditure in healthy individuals](https://doi.org/10.1093/ajcn/51.2.241). *American Journal of Clinical Nutrition, 51*(2), 241–247.  
+  Frankenfield, D., et al. (2005). [Comparison of predictive equations for resting metabolic rate in healthy nonobese and obese adults](https://doi.org/10.1177/0148607105030004467). *JPEN Journal of Parenteral and Enteral Nutrition, 29*(3), 186–196.  
+  FAO/WHO/UNU Expert Consultation. (2004). [Human energy requirements](https://www.fao.org/3/y5686e/y5686e00.htm). *FAO Food and Nutrition Technical Report Series*.  
+
+- **Goal-Based Calorie Adjustments:**  
+  Helms, E. R., et al. (2014). [Evidence-based recommendations for natural bodybuilding contest preparation](https://pubmed.ncbi.nlm.nih.gov/24299050/). *International Journal of Sport Nutrition and Exercise Metabolism, 24*(2), 186–198.  
+  Burke, L. M., et al. (2011). [Carbohydrates for training and competition](https://doi.org/10.2165/11591390-000000000-00000). *Sports Medicine, 41*(Suppl 1), 17–38.
+
+---
